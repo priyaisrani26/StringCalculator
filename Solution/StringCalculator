@@ -2,9 +2,19 @@ package Solution;
 
 public class StringCalculator{
   public int Add(String numbers) {
-	  String[] numbersArray = numbers.split(",|\n");
 	  int sum = 0;
 	  
+	  if(numbers.matches("//(.*)\n(.*)")) {
+		  int delimiterIndex = numbers.lastIndexOf('/') + 1;
+		  char delimiter = numbers.charAt(delimiterIndex);
+		  //System.out.println(delimiter);
+		  numbers = numbers.replace("\n","");
+		  numbers = numbers.replace(delimiter, ',');
+		  int newLineIndex = delimiterIndex + 1;
+		  numbers = numbers.substring(newLineIndex, numbers.length());
+	  }
+	  String[] numbersArray = numbers.split(",|\n");
+	  //System.out.println(numbers);
 	  if(numbers.isEmpty()) {
 		  return 0;
 	  }
