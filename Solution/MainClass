@@ -1,0 +1,10 @@
+package Solution;
+
+public class MainClass {
+	public static void main(String[] args) {
+		StringCalculator str_cal = new StringCalculator();
+		String str = "";
+		int sum = str_cal.Add(str);
+		System.out.println("Sum of the numbers is:          " + sum);
+	}
+}
