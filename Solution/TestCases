@@ -1,6 +1,8 @@
 package Solution;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -12,7 +14,16 @@ public class testClass {
 	@DisplayName("When String is Empty")
 	public void whenStringIsEmpty() {
 		String str = "";
-		assertEquals(0, str_cal.Add(str));
+		int num = str_cal.Add(str);
+		assertEquals(0, num);
+	}
+	
+	@Test
+	@DisplayName("When String has only one number")
+	public void whenOnlyOneNumber() {
+		String str = "2";
+		int num = str_cal.Add(str);
+		assertEquals(2, num);
 	}
 	
 }
