@@ -61,6 +61,17 @@ public class StringCalculator{
 		return requiredString;
 	}
 	
+			//commented as it checks only single length of delimiter
+		  /*if(numbers.matches("//(.*)\n(.*)")) {
+		  int delimiterIndex = numbers.indexOf(custom_delimiter_start)+ 1;
+		  char delimiter = numbers.charAt(delimiterIndex);
+		  //System.out.println(delimiter);
+		  numbers = numbers.replace("\n","");
+		  numbers = numbers.replace(delimiter, ',');
+		  int newLineIndex = delimiterIndex + 1;
+		  numbers = numbers.substring(newLineIndex, numbers.length());
+	  		}*/
+	
 	public int  GetCalledCount() {
 		return count;
 	}
