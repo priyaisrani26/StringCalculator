@@ -3,11 +3,55 @@ package Solution;
 import java.util.ArrayList;
 
 public class StringCalculator{
-	int count =0;			 				
-    String custom_delimiter_start = "//";	
-  public int Add(String numbers) {
-	  int sum = 0;
-	  if(numbers.matches("//(.*)\n(.*)")) {
+	int count=0;
+	String delimiter = "";													 				
+    String custom_delimiter_start = "//";											
+	public int Add(String numbers) {
+		int sum =0;
+        if (numbers.startsWith(custom_delimiter_start))
+            numbers = setDelimiterLengthInSubstring(numbers);			
+
+		String[] numbersArray = numbers.split(",|\n");
+		ArrayList<Integer> negativeNumbers = new ArrayList<>();
+		
+		
+		if(numbers.isEmpty()) {
+			return 0;
+		}
+		
+		for(String i : numbersArray) {
+			if(Integer.parseInt(i) < 0) {
+				negativeNumbers.add(Integer.parseInt(i));
+			}
+			else {
+				if(Integer.parseInt(i)>1000) {
+					break;
+				}
+				else {
+					sum += Integer.parseInt(i);			//parse the string to integer
+				}
+			count += 1;
+			}
+		}
+		
+		if(negativeNumbers.size() > 0) {
+			throw new IllegalArgumentException("Negatives not allowed " + negativeNumbers);
+		}
+		return sum;
+	}
+	
+	public String setDelimiterLengthInSubstring(String numbers) {
+		int customDelimiterStart = numbers.indexOf(custom_delimiter_start) + 2;
+		int customDelimiterEnd = numbers.indexOf("\n");
+		delimiter = numbers.substring(customDelimiterStart, customDelimiterEnd);
+		//System.out.println(delimiter);
+		String requiredString = numbers.substring(customDelimiterEnd + 1).replace(delimiter, ",");
+		//System.out.println(requiredString);
+		return requiredString;
+	}
+		
+		//commented a it checks only single length of delimiter
+		  /*if(numbers.matches("//(.*)\n(.*)")) {
 		  int delimiterIndex = numbers.indexOf(custom_delimiter_start)+ 1;
 		  char delimiter = numbers.charAt(delimiterIndex);
 		  //System.out.println(delimiter);
@@ -15,41 +59,9 @@ public class StringCalculator{
 		  numbers = numbers.replace(delimiter, ',');
 		  int newLineIndex = delimiterIndex + 1;
 		  numbers = numbers.substring(newLineIndex, numbers.length());
-	  }
-	  String[] numbersArray = numbers.split(",|\n");
-	  //System.out.println(numbers);
-	  ArrayList<Integer> negativeNumbers  = new ArrayList<>();
-	  
-	  if(numbers.isEmpty()) {
-		  return 0;
-	  }
-	  if(numbers.length() == 1) {
-		  return Integer.parseInt(numbers);
-	  }
-	  for(String i : numbersArray) {
-		  int num = Integer.parseInt(i);
-		  if(num < 0) {
-			  negativeNumbers.add(num);
-		  }
-		  else {
-			  if(num > 1000) {
-				  break;
-			  }
-			  sum += Integer.parseInt(i);
-			  count +=1;
-		  }
-	  }
-	  if(negativeNumbers.size() > 0) {
-		  throw new IllegalArgumentException("Negatives not allowed " + negativeNumbers);
-	  }
-	  return sum;
-  }
-  
+	  		}*/
+	
 	public int  GetCalledCount() {
 		return count;
 	}
-  
 }
-	
-
-
