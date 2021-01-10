@@ -31,7 +31,10 @@ public class StringCalculator{
 			  negativeNumbers.add(num);
 		  }
 		  else {
-		  sum += Integer.parseInt(i);
+			  if(num > 1000) {
+				  break;
+			  }
+			  sum += Integer.parseInt(i);
 		  }
 	  }
 	  if(negativeNumbers.size() > 0) {
