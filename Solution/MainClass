@@ -3,8 +3,10 @@ package Solution;
 public class MainClass {
 	public static void main(String[] args) {
 		StringCalculator str_cal = new StringCalculator();
-		String str = "1,1001";
+		String str = "1,2";
 		int sum = str_cal.Add(str);
+		int count = str_cal.GetCalledCount();
 		System.out.println("Sum of the numbers is:          " + sum);
+		System.out.println("Count for Add Method called is: " + count);
 	}
 }
