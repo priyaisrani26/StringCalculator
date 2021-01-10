@@ -85,7 +85,7 @@ public class testClass {
 	}
 	
 	@Test
-	@DisplayName("When String has multipled delimiters")
+	@DisplayName("When String has multiple delimiters")
 	public void whenMultipleDelimiterOfSomeLengthIsUsed() {
 		String str = "//**%%\n1**%%2**%%3";
 		int sum = str_cal.Add(str);
