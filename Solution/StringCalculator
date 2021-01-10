@@ -11,7 +11,9 @@ public class StringCalculator{
 	  if(numbers.length() == 1) {
 		  return Integer.parseInt(numbers);
 	  }
-	  sum = Integer.parseInt(numbersArray[0]) + Integer.parseInt(numbersArray[1]);
+	  for(String i : numbersArray) {
+		  sum += Integer.parseInt(i);
+	  }
 	  return sum;
 	  }
   }
