@@ -26,6 +26,14 @@ public class testClass {
 		assertEquals(2, num);
 	}
 	
+	@Test
+	@DisplayName("When String has only two numbers")
+	public void whenAdditionOfTwoNumbers() {
+		String str = "1,2";
+		int num = str_cal.Add(str);
+		assertEquals(3, num);
+	}
+	
 }
 
 	
