@@ -67,6 +67,14 @@ public class testClass {
 				});
 	}
 	
+	@Test
+	@DisplayName("When String has numbers greater than 1000, ignore them.")
+	public void whenNoGreaterThan1000IsUsed() {
+		String str = "1,1001";
+		int sum = str_cal.Add(str);
+ 	   	assertEquals(1, sum);
+	}
+	
 }
 
 	
