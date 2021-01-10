@@ -3,7 +3,7 @@ package Solution;
 public class MainClass {
 	public static void main(String[] args) {
 		StringCalculator str_cal = new StringCalculator();
-		String str = "1,2,3";
+		String str = "1\n2,3";
 		int sum = str_cal.Add(str);
 		System.out.println("Sum of the numbers is:          " + sum);
 	}
