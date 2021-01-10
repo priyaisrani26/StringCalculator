@@ -3,9 +3,9 @@ package Solution;
 import java.util.ArrayList;
 
 public class StringCalculator{
+	int count =0;
   public int Add(String numbers) {
 	  int sum = 0;
-	  
 	  if(numbers.matches("//(.*)\n(.*)")) {
 		  int delimiterIndex = numbers.lastIndexOf('/') + 1;
 		  char delimiter = numbers.charAt(delimiterIndex);
@@ -42,6 +42,11 @@ public class StringCalculator{
 	  }
 	  return sum;
   }
+  
+	public int  GetCalledCount() {
+		return count;
+	}
+  
 }
 	
 
