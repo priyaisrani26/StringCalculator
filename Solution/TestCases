@@ -75,6 +75,16 @@ public class testClass {
  	   	assertEquals(1, sum);
 	}
 	
+	@Test
+	@DisplayName("When count method called to count how many times Add() method is being called")
+	public void whenCountAddMethodIsCalled() {
+		String str = "1,2";
+		str_cal.Add(str);
+ 	   	int count = str_cal.GetCalledCount();
+ 	   	assertEquals(2, count);
+	}
+	
+	
 }
 
 	
