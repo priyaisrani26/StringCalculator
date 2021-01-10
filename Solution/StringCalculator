@@ -35,6 +35,7 @@ public class StringCalculator{
 				  break;
 			  }
 			  sum += Integer.parseInt(i);
+			  count +=1;
 		  }
 	  }
 	  if(negativeNumbers.size() > 0) {
