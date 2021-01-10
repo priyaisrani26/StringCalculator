@@ -1,0 +1,20 @@
+package Solution;
+
+import static org.junit.Assert.assertEquals;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+
+@DisplayName("Test Cases")
+public class testClass {
+	StringCalculator str_cal =new StringCalculator();
+	
+	@Test
+	@DisplayName("When String is Empty")
+	public void whenStringIsEmpty() {
+		String str = "";
+		assertEquals(0, str_cal.Add(str));
+	}
+	
+}
+
+	
