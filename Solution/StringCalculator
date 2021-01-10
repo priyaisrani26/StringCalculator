@@ -6,7 +6,7 @@ public class StringCalculator{
 		  return 0;
 	  }
 	  if(numbers.length() == 1) {
-		  return numbers.length();
+		  return Integer.parseInt(numbers);
 	  }
 	  return 0;
   }
