@@ -58,6 +58,15 @@ public class testClass {
 		assertEquals(3, num);
 	}
 	
+	@Test
+	@DisplayName("When String should not contain negative numbers")
+	public void whenNegativeNumbersNotAllowed() {
+		String str = "-1,-2";
+		assertThrows(IllegalArgumentException.class, () -> {
+					str_cal.Add("-1,-2");
+				});
+	}
+	
 }
 
 	
