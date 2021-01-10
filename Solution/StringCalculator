@@ -3,11 +3,12 @@ package Solution;
 import java.util.ArrayList;
 
 public class StringCalculator{
-	int count =0;
+	int count =0;			 				
+    String custom_delimiter_start = "//";	
   public int Add(String numbers) {
 	  int sum = 0;
 	  if(numbers.matches("//(.*)\n(.*)")) {
-		  int delimiterIndex = numbers.lastIndexOf('/') + 1;
+		  int delimiterIndex = numbers.indexOf(custom_delimiter_start)+ 1;
 		  char delimiter = numbers.charAt(delimiterIndex);
 		  //System.out.println(delimiter);
 		  numbers = numbers.replace("\n","");
