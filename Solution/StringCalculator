@@ -2,7 +2,7 @@ package Solution;
 
 public class StringCalculator{
   public int Add(String numbers) {
-	  String[] numbersArray = numbers.split(",");
+	  String[] numbersArray = numbers.split(",|\n");
 	  int sum = 0;
 	  
 	  if(numbers.isEmpty()) {
