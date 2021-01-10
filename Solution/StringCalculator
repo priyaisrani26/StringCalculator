@@ -4,62 +4,62 @@ import java.util.ArrayList;
 
 public class StringCalculator{
 	int count=0;
-	String delimiter = "";													 				
-    String custom_delimiter_start = "//";											
+	String delimiter = "";								//declared to replace the substring of a custom delimiter
+    String delimiter_start = "//";						//declared to check if string started with // as in question
+    String delimiter_end = "\n";						//declared to check if the delimiter is ended with \n if used multiple times
+    
 	public int Add(String numbers) {
 		int sum =0;
-        if (numbers.startsWith(custom_delimiter_start))
-            numbers = setDelimiterLengthInSubstring(numbers);			
-
+        if (numbers.startsWith(delimiter_start))
+            numbers = setCustomDelimiter(numbers);			//requiredString will be placed in numbers 
+        		
+		//split the comma separated string
 		String[] numbersArray = numbers.split(",|\n");
+		//array list to add negative numbers if any
 		ArrayList<Integer> negativeNumbers = new ArrayList<>();
-		
 		
 		if(numbers.isEmpty()) {
 			return 0;
 		}
 		
 		for(String i : numbersArray) {
-			if(Integer.parseInt(i) < 0) {
-				negativeNumbers.add(Integer.parseInt(i));
+			int num = Integer.parseInt(i);
+			if(num < 0) {
+				negativeNumbers.add(num);
 			}
 			else {
-				if(Integer.parseInt(i)>1000) {
+				if(num > 1000) {
 					break;
 				}
 				else {
-					sum += Integer.parseInt(i);			//parse the string to integer
+					sum += num;			//parse the string to integer
 				}
 			count += 1;
 			}
 		}
 		
+		//for checking if any negative number is present
 		if(negativeNumbers.size() > 0) {
 			throw new IllegalArgumentException("Negatives not allowed " + negativeNumbers);
 		}
 		return sum;
 	}
 	
-	public String setDelimiterLengthInSubstring(String numbers) {
-		int customDelimiterStart = numbers.indexOf(custom_delimiter_start) + 2;
-		int customDelimiterEnd = numbers.indexOf("\n");
+	public String setCustomDelimiter(String numbers) {
+		//customDelimiterStart is start index of any delimiter 
+		int customDelimiterStart = numbers.indexOf(delimiter_start) + 2;
+		
+		//customDelimiterEnd is end index of any delimiter which will me new line as per question
+		int customDelimiterEnd = numbers.indexOf(delimiter_end);
+		
+		//to get our delimiter of any length by using substring
 		delimiter = numbers.substring(customDelimiterStart, customDelimiterEnd);
-		//System.out.println(delimiter);
+		
+		//requiredString is the taking string separated by comma using replace method
 		String requiredString = numbers.substring(customDelimiterEnd + 1).replace(delimiter, ",");
-		//System.out.println(requiredString);
+		
 		return requiredString;
 	}
-		
-		//commented a it checks only single length of delimiter
-		  /*if(numbers.matches("//(.*)\n(.*)")) {
-		  int delimiterIndex = numbers.indexOf(custom_delimiter_start)+ 1;
-		  char delimiter = numbers.charAt(delimiterIndex);
-		  //System.out.println(delimiter);
-		  numbers = numbers.replace("\n","");
-		  numbers = numbers.replace(delimiter, ',');
-		  int newLineIndex = delimiterIndex + 1;
-		  numbers = numbers.substring(newLineIndex, numbers.length());
-	  		}*/
 	
 	public int  GetCalledCount() {
 		return count;
