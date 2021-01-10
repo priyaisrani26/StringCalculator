@@ -53,9 +53,9 @@ public class testClass {
 	@Test
 	@DisplayName("When String should support custom delimiter instead of comma")
 	public void whenItShouldSupportDifferentDelimiters() {
-		String str = "//:\n1;2";
+		String str = "//;\n1;2";
 		int num = str_cal.Add(str);
-		assertEquals(6, num);
+		assertEquals(3, num);
 	}
 	
 }
