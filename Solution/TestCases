@@ -34,6 +34,14 @@ public class testClass {
 		assertEquals(3, num);
 	}
 	
+	@Test
+	@DisplayName("When String has more than two numbers")
+	public void whenAdditionOfMoreThanTwoNumbers() {
+		String str = "1,2,3";
+		int num = str_cal.Add(str);
+		assertEquals(6, num);
+	}
+	
 }
 
 	
